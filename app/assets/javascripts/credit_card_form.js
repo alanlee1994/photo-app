@@ -14,8 +14,11 @@ $(document).ready(function(){
     }; 
     
     $(".cc_form").on('submit', submitHandler);
+    
     stripeResponseHandler = function(status, response){
     var token, $form;
+    
+    $form = $('.cc_form');
     
     if (response.error){
         console.log(response.error.message);
@@ -33,6 +36,7 @@ $(document).ready(function(){
     }
     return false;
     };
+    
     show_error = function (message) {
         if($("#flash-messages").size() < 1){
             $('div.container.main div:first').prepend("<div id='flash-messages'></div>")
